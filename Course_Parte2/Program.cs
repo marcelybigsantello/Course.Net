@@ -53,8 +53,7 @@ namespace Course_Parte2
 
             //FUNC
             Console.WriteLine("\nDELEGATE FUNC:");
-            Func<Product, string> func = p => p.Name.ToUpper();
-            List<string> resultado = produtos.Select(func).ToList();
+            List<string> resultado = produtos.Select(p => p.Name.ToUpper()).ToList();
             foreach(string res in resultado)
             {
                 Console.WriteLine(res);
