@@ -44,7 +44,7 @@ namespace Course_Parte2
             oper.Invoke(m, n);
 
             //ACTION
-            Console.WriteLine("\nACTION");
+            Console.WriteLine("\nDELEGATE ACTION:");
             produtos.ForEach(p => { p.Price += p.Price * 0.10f; });
             foreach(Product p in produtos)
             {
@@ -52,15 +52,16 @@ namespace Course_Parte2
             }
 
             //FUNC
-            Console.WriteLine("\nFUNC");
-            List<string> resultado = produtos.Select(NameUpper).ToList();
+            Console.WriteLine("\nDELEGATE FUNC:");
+            Func<Product, string> func = NameUpper;
+            List<string> resultado = produtos.Select(func).ToList();
             foreach(string res in resultado)
             {
                 Console.WriteLine(res);
             }
 
             //PREDICATE
-            Console.WriteLine("\nPREDICATE");
+            Console.WriteLine("\nDELEGATE PREDICATE:");
             produtos.RemoveAll(ProductTest);
             foreach(Product p in produtos)
             {
