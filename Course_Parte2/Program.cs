@@ -6,6 +6,7 @@ using Lambda_Delegates_LINQ.Services;
 namespace Course_Parte2
 {
     delegate float BinaryNumericOperation(float x, float y);
+    delegate void BinaryNumericOperator(float x, float y);
     class Program
     {
         static void Main(string[] args)
@@ -31,6 +32,14 @@ namespace Course_Parte2
 
             float result = op.Invoke(a, b);
             Console.WriteLine(result);
+
+            Console.WriteLine("---------------------------------------------");
+            float m = 20;
+            float n = 15;
+            BinaryNumericOperator oper = CalculationService2.ShowSum;
+            oper += CalculationService2.ShowMax;
+            oper.Invoke(m, n);
+
         }
 
     }
