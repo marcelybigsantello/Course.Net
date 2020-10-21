@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Lambda_Delegates_LINQ.Entities;
 using Lambda_Delegates_LINQ.Services;
 
@@ -50,6 +51,14 @@ namespace Course_Parte2
                 Console.WriteLine(p);
             }
 
+            //FUNC
+            Console.WriteLine("\nFUNC");
+            List<string> resultado = produtos.Select(NameUpper).ToList();
+            foreach(string res in resultado)
+            {
+                Console.WriteLine(res);
+            }
+
             //PREDICATE
             Console.WriteLine("\nPREDICATE");
             produtos.RemoveAll(ProductTest);
@@ -58,6 +67,11 @@ namespace Course_Parte2
                 Console.WriteLine(p);
             }
 
+        }
+
+        static string NameUpper(Product p)
+        {
+            return p.Name.ToUpper();
         }
 
         public static bool ProductTest(Product p)
