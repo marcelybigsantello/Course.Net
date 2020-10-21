@@ -16,6 +16,7 @@ namespace Course_Parte2
             produtos.Add(new Product("Notebook", 1200.00f));
             produtos.Add(new Product("Tablet", 450.00f));
             produtos.Add(new Product("Mouse", 35.70f));
+            produtos.Add(new Product("HD Case", 80.90f));
 
             //Comparison<Product> comp = (p1, p2) => p1.Name.ToUpper().CompareTo(p2.Name.ToUpper());
             produtos.Sort((p1, p2) => p1.Name.ToUpper().CompareTo(p2.Name.ToUpper()));
@@ -39,6 +40,15 @@ namespace Course_Parte2
             BinaryNumericOperator oper = CalculationService2.ShowSum;
             oper += CalculationService2.ShowMax;
             oper.Invoke(m, n);
+
+
+            //PREDICATE
+            Console.WriteLine("\nPREDICATE");
+            produtos.RemoveAll(p => p.Price >= 100.00);
+            foreach(Product p in produtos)
+            {
+                Console.WriteLine(p);
+            }
 
         }
 
