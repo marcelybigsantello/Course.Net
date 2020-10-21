@@ -53,7 +53,7 @@ namespace Course_Parte2
 
             //FUNC
             Console.WriteLine("\nDELEGATE FUNC:");
-            Func<Product, string> func = NameUpper;
+            Func<Product, string> func = p => p.Name.ToUpper();
             List<string> resultado = produtos.Select(func).ToList();
             foreach(string res in resultado)
             {
@@ -69,12 +69,6 @@ namespace Course_Parte2
             }
 
         }
-
-        static string NameUpper(Product p)
-        {
-            return p.Name.ToUpper();
-        }
-
         public static bool ProductTest(Product p)
         {
             return p.Price >= 100.00;
