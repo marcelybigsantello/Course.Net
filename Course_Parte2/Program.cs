@@ -44,12 +44,17 @@ namespace Course_Parte2
 
             //PREDICATE
             Console.WriteLine("\nPREDICATE");
-            produtos.RemoveAll(p => p.Price >= 100.00);
+            produtos.RemoveAll(ProductTest);
             foreach(Product p in produtos)
             {
                 Console.WriteLine(p);
             }
 
+        }
+
+        public static bool ProductTest(Product p)
+        {
+            return p.Price >= 100.00;
         }
 
     }
