@@ -44,6 +44,8 @@ namespace Course_Parte2
 
             //ACTION
             Console.WriteLine("\nACTION");
+            Action<Product> act = p => { p.Price += p.Price * 0.10f; };
+
             produtos.ForEach(UpdatePrice);
             foreach(Product p in produtos)
             {
