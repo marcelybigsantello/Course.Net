@@ -44,9 +44,7 @@ namespace Course_Parte2
 
             //ACTION
             Console.WriteLine("\nACTION");
-            Action<Product> act = p => { p.Price += p.Price * 0.10f; };
-
-            produtos.ForEach(UpdatePrice);
+            produtos.ForEach(p => { p.Price += p.Price * 0.10f; });
             foreach(Product p in produtos)
             {
                 Console.WriteLine(p);
@@ -66,11 +64,5 @@ namespace Course_Parte2
         {
             return p.Price >= 100.00;
         }
-
-        public static void UpdatePrice(Product p)
-        {
-            p.Price += p.Price * 0.1f;
-        }
-
     }
 }
