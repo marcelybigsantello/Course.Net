@@ -12,7 +12,7 @@ namespace Course_Parte2
     {
         static void Main(string[] args)
         {
-            List<Product> produtos = new List<Product>();
+            /*List<Product> produtos = new List<Product>();
             produtos.Add(new Product("TV", 900.00f));
             produtos.Add(new Product("Notebook", 1200.00f));
             produtos.Add(new Product("Tablet", 450.00f));
@@ -65,6 +65,18 @@ namespace Course_Parte2
             foreach(Product p in produtos)
             {
                 Console.WriteLine(p);
+            }*/
+
+            //Specify the data source
+            int[] numbers = new int[] { 2, 3, 4, 5, 6, 7 };
+
+            //Define the query expression
+            var ret = numbers.Where(x => x % 2 == 0).Select(x => x * 10);
+
+            //Execute the query
+            foreach(int num in ret)
+            {
+                Console.WriteLine(num);
             }
 
         }
