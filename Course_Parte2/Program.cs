@@ -96,17 +96,17 @@ namespace Course_Parte2
 
             List<Product2> products = new List<Product2>()
             {
-                new Product2() {Id = 1, Name = "Computer Dell", Price = 1100.00F, Category = c2},
-                new Product2() {Id = 2, Name = "Hammer", Price = 90.00F, Category = c1},
-                new Product2() {Id = 3, Name = "TV Samsung 24 polegadas", Price = 1700.00F, Category = c3},
-                new Product2() {Id = 4, Name = "Notebook Microsoft i5 128GB", Price = 1300.00F, Category = c2},
-                new Product2() {Id = 5, Name = "Saw", Price = 80.00F, Category = c1},
-                new Product2() {Id = 6, Name = "Tablet Samsung", Price = 700.00F, Category = c2},
-                new Product2() {Id = 7, Name = "Camera Go Pro", Price = 1100.00F, Category = c3},
-                new Product2() {Id = 8, Name = "Printer", Price = 350.50F, Category = c3},
-                new Product2() {Id = 9, Name = "MacBook Apple i5 64GB", Price = 1800.00F, Category = c2},
-                new Product2() {Id = 10, Name = "Sound Bar", Price = 700.00F, Category = c3},
-                new Product2() {Id = 11, Name = "Level", Price = 70.00F, Category = c1},
+                new Product2() {Id = 1, Name = "Computer Dell", Price = 1100.00, Category = c2},
+                new Product2() {Id = 2, Name = "Hammer", Price = 90.00, Category = c1},
+                new Product2() {Id = 3, Name = "TV Samsung 24 polegadas", Price = 1700.00, Category = c3},
+                new Product2() {Id = 4, Name = "Notebook Microsoft i5 128GB", Price = 1300.00, Category = c2},
+                new Product2() {Id = 5, Name = "Saw", Price = 80.00, Category = c1},
+                new Product2() {Id = 6, Name = "Tablet Samsung", Price = 700.00, Category = c2},
+                new Product2() {Id = 7, Name = "Camera Go Pro", Price = 1100.00, Category = c3},
+                new Product2() {Id = 8, Name = "Printer", Price = 350.50, Category = c3},
+                new Product2() {Id = 9, Name = "MacBook Apple i5 64GB", Price = 1800.00, Category = c2},
+                new Product2() {Id = 10, Name = "Sound Bar", Price = 700.00, Category = c3},
+                new Product2() {Id = 11, Name = "Level", Price = 70.00, Category = c1},
 
             };
 
@@ -137,6 +137,40 @@ namespace Course_Parte2
 
             var r9 = products.Where(p => p.Id == 300).SingleOrDefault();
             Console.WriteLine("Single or default test 2: " + r9);
+            Console.WriteLine();
+
+            var r10 = products.Max(p => p.Price);
+            Console.WriteLine("Max Price: " + r10);
+
+            var r11 = products.Min(p => p.Price);
+            Console.WriteLine("Min Price: " + r11);
+
+            var r12 = products.Where(p => p.Category.Id == 1).Sum(p => p.Price);
+            Console.WriteLine("Sum prices category 1: " + r12);
+
+            var r13 = products.Where(p => p.Category.Id == 1).Average(p => p.Price);
+            Console.WriteLine("Average prices category 1: " + r13);
+
+            var r14 = products.Where(p => p.Category.Id == 5).Select(p => p.Price).DefaultIfEmpty(0.0).Average();
+            Console.WriteLine("Average prices category 5: " + r14);
+
+            var r15 = products.Where(p => p.Category.Id == 1).Select(p => p.Price).Aggregate((x, y) => x + y);
+            Console.WriteLine("Category 1 aggregate sum: " + r15);
+
+            var r16 = products.Where(p => p.Category.Id == 5).Select(p => p.Price).Aggregate(0.0, (x, y) => x + y);
+            Console.WriteLine("Category 5 aggregate sum: " + r16);
+            Console.WriteLine();
+
+            var r17 = products.GroupBy(p => p.Category);
+            foreach(IGrouping<Category, Product> group in r17)
+            {
+                Console.WriteLine("Category " + group.Key.Name + ":");
+                foreach(Product p in group)
+                {
+                    Console.WriteLine(p);
+                }
+                Console.WriteLine();
+            }
 
         }
         public static bool ProductTest(Product p)

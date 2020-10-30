@@ -6,7 +6,7 @@ namespace Lambda_Delegates_LINQ.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
         public Category Category { get; set; }
 
         public override string ToString()
