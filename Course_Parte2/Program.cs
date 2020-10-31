@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Lambda_Delegates_LINQ.Entities;
+using System.IO;
+using System.Globalization;
 using Lambda_Delegates_LINQ.Services;
 
 namespace Course_Parte2
@@ -200,7 +202,7 @@ namespace Course_Parte2
                 }
                 Console.WriteLine();
             }
-
+    
         }
         public static bool ProductTest(Product p)
         {
